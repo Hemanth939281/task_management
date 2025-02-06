@@ -40,14 +40,8 @@ const TaskForm = ({task, onSubmit}) => {
             dueDate: dueDateRef.current.value
         }
         console.log(task);
-        onSubmit(newTask);
-        if (!localStorage.getItem('tasks')) {
-          localStorage.setItem('tasks', JSON.stringify([]));
-        }
-        const existingTasks = JSON.parse(localStorage.getItem('tasks'));
-        existingTasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(existingTasks));
-        window.location.reload();
+        onSubmit(task);
+        
     }
 
     return (
@@ -56,7 +50,7 @@ const TaskForm = ({task, onSubmit}) => {
     className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg space-y-6 mt-6"
     onSubmit={handleTaskSubmission}
   >
-    <h2 className="text-2xl font-bold text-gray-800 mb-6">Create New Task</h2>
+    <h2 className="text-2xl font-bold text-gray-800 mb-6">{task ? "Update Task" : "Create New Task"}</h2>
     
     <div className="space-y-2">
       <label 
@@ -123,7 +117,7 @@ const TaskForm = ({task, onSubmit}) => {
       type="submit"
       className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium transition-colors"
     >
-      Add Task
+      {task ? "Update" : "Add Task"}
     </button>
   </form>
         </>

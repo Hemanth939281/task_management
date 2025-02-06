@@ -5,6 +5,7 @@ import TaskForm from "@/components/TaskForm";
 import TaskList from "@/components/TaskList";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [tasks, setTasks] = useState([]);
@@ -22,8 +23,12 @@ export default function Home() {
   const handleSubmit = async (taskData) => {
     if (selectedTask) {
       await axios.put(`/api/tasks/${selectedTask._id}`, taskData);
+      toast.success('task updated sucessfully');
+      fetchTasks();
     } else {
       await axios.post("/api/tasks", taskData);
+      toast.success('task added successfully');
+      fetchTasks();
     }
     setSelectedTask(null);
     fetchTasks();
@@ -31,6 +36,7 @@ export default function Home() {
 
   const handleDelete = async (taskId) => {
     await axios.delete(`/api/tasks/${taskId}`);
+    toast.success('task deleted successfully');
     const updatedTasks = tasks.filter((task) => task._id!== taskId);
     setTasks(updatedTasks);
   };
@@ -41,6 +47,7 @@ export default function Home() {
 
   const handleToggleComplete = async(taskId, completed) =>{
     await axios.put(`/api/tasks/${taskId}`, {completed});
+    toast.success('task marked as completed');
     fetchTasks();
   }
   
