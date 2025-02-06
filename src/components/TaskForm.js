@@ -50,6 +50,7 @@ const TaskForm = ({task, onSubmit}) => {
 
     return (
         <>
+        <div className="bg-gray-200 py-16">
         <div className="text-center my-10">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Task Management App</h1>
         <p className="text-gray-600">Organize and track your tasks efficiently</p>
@@ -128,6 +129,7 @@ const TaskForm = ({task, onSubmit}) => {
       {task ? "Update" : "Add Task"}
     </button>
   </form>
+        </div>
         </>
     )
 }
