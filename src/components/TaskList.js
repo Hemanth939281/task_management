@@ -32,7 +32,7 @@ const TaskList = ({tasks, onDelete, onEdit, onToggleComplete}) => {
             <p className="text-gray-600 mb-6">{task.description}</p>
             
             <div className="flex justify-end space-x-4">
-              <button
+              <button disabled={task.completed === true ? true : false}
                 onClick={() => onToggleComplete(task._id, !task.completed)}
                 className={`px-4 py-2 rounded-md text-white font-medium transition-colors
                   ${task.completed 

@@ -23,9 +23,9 @@ const TaskForm = ({task, onSubmit}) => {
     const validate = () => {
         const newErrors={}
 
-        if (!titleRef.current.value) return errors.title = "Task title is required";
-        if (!descriptionRef.current.value) return errors.description = "Task description is required";
-        if (!dueDateRef.current.value) return errors.dueDate = "Task due date is required";
+        if (!titleRef.current.value) return newErrors.title = "Task title is required";
+        if (!descriptionRef.current.value) return newErrors.description = "Task description is required";
+        if (!dueDateRef.current.value) return newErrors.dueDate = "Task due date is required";
         setErrors(newErrors);
 
         return Object.keys(errors).length === 0;

@@ -26,8 +26,14 @@ export default function Home() {
       toast.success('task updated sucessfully');
       fetchTasks();
     } else {
-      await axios.post("/api/tasks", taskData);
-      toast.success('task added successfully');
+      try{
+         await axios.post("/api/tasks", taskData);
+         toast.success('task added successfully');
+      }
+      catch(error){
+        toast.error(error.response.data.message);
+      }
+      
       fetchTasks();
     }
     setSelectedTask(null);
