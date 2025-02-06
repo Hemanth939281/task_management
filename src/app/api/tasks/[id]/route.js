@@ -6,7 +6,7 @@ export async function PUT(req, {params}) {
     try {
       await connectDB();
       
-      const { id } = params;
+      const { id } = await params;
      
       const updatedTask  = await req.json();
   
@@ -34,7 +34,7 @@ export async function PUT(req, {params}) {
     try {
       await connectDB();
     
-      const { id } = params;
+      const { id } = await params;
     
       if (!id) {
         return NextResponse.json({ message: "Task ID is required" }, { status: 400 });

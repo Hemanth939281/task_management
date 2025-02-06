@@ -41,6 +41,10 @@ const TaskForm = ({task, onSubmit}) => {
         }
         console.log(task);
         onSubmit(task);
+
+    titleRef.current.value = "";
+    descriptionRef.current.value = "";
+    dueDateRef.current.value = "";
         
     }
 
