@@ -7,7 +7,7 @@ const TaskList = ({tasks, onDelete, onEdit, onToggleComplete}) => {
  
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">My Tasks</h1>
+      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">My Tasks</h1>
       <div className="grid gap-6">
         {tasks?.map((task) => (
           <div key={task.description} 
