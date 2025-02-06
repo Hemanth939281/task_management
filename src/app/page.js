@@ -24,6 +24,7 @@ export default function Home() {
     if (selectedTask) {
       await axios.put(`/api/tasks/${selectedTask._id}`, taskData);
       toast.success('task updated sucessfully');
+      setSelectedTask(null);
       fetchTasks();
     } else {
       try{
