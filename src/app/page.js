@@ -50,6 +50,7 @@ export default function Home() {
 
   const handleEdit = (task) => {
     setSelectedTask(task);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleToggleComplete = async(taskId, completed) =>{
@@ -61,10 +62,7 @@ export default function Home() {
 
   return (
     <>
-    <div className="text-center my-10">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Task Management App</h1>
-        <p className="text-gray-600">Organize and track your tasks efficiently</p>
-      </div>
+    
     <TaskForm task={selectedTask}  onSubmit={handleSubmit}/>
     <TaskList 
     tasks = {tasks}
