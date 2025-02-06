@@ -50,6 +50,10 @@ const TaskForm = ({task, onSubmit}) => {
 
     return (
         <>
+        <div className="text-center my-10">
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Task Management App</h1>
+        <p className="text-gray-600">Organize and track your tasks efficiently</p>
+      </div>
         <form 
     className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg space-y-6 mt-6"
     onSubmit={handleTaskSubmission}
